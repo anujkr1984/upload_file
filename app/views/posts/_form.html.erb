@@ -1,0 +1,29 @@
+<%= form_with(model: post, local: true,id: "test") do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<input type="hidden" value="<%= form_authenticity_token.to_s %>" id="token">
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+ <%= form.file_field :file_upload %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

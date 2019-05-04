@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @posts.size %> Posts</h2>
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <%= render 'form', post: @post %>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
+<script>
+
+  $(document).ready(function() {
+    $("#test").submit(function(event) {
+        event.preventDefault();
+
+          var fileInput = document.querySelector('input[type=file]');
+          var attachment = fileInput.files[0];
+          var formData = new FormData(); 
+          formData.append('jitendra[title]', $("#post_title").val());
+          formData.append('jitendra[body]', $("#post_body").val());
+          formData.append('jitendra[file_upload]', attachment, 'filename.jpg');
+          formData.append('authenticity_token',$("#token").val());
+
+        $.ajax({
+          url: '/posts',
+          type: 'POST',
+          data: formData,
+          contentType: false,
+          processData: false,
+           success: function(data){
+            alert("data saved successfully")
+          }
+        });     
+
+      });
+ })
+    
+</script>

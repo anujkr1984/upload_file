@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+ <%=link_to 'view file', @post.file_upload %>
+ <%=link_to 'download', @post.file_upload, download: '' %>
+ <%= link_to 'Remove image', delete_image_attachment_path(:id=>@post.file_upload.id), method: :delete %>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
