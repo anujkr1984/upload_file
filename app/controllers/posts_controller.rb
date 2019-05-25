@@ -57,6 +57,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:jitendra).permit(:title, :body,:post_id, :file_upload, )
+      params.require(:post).permit(:title, :body, :file_upload, )
     end
 end

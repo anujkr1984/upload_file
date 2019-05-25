@@ -10,6 +10,18 @@
   <%= @post.body %>
 </p>
 
+
+
+
+<!-- 
+<%= form_with model: @comment do |form| %>
+  
+   <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  <%= form.submit %>
+<% end %>
+ -->
+
  <%=link_to 'view file', @post.file_upload %>
  <%=link_to 'download', @post.file_upload, download: '' %>
  <%= link_to 'Remove image', delete_image_attachment_path(:id=>@post.file_upload.id), method: :delete %>

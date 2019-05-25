@@ -39,9 +39,9 @@
           var fileInput = document.querySelector('input[type=file]');
           var attachment = fileInput.files[0];
           var formData = new FormData(); 
-          formData.append('jitendra[title]', $("#post_title").val());
-          formData.append('jitendra[body]', $("#post_body").val());
-          formData.append('jitendra[file_upload]', attachment, 'filename.jpg');
+          formData.append('post[title]', $("#post_title").val());
+          formData.append('post[body]', $("#post_body").val());
+          formData.append('post[file_upload]', attachment, 'filename.jpg');
           formData.append('authenticity_token',$("#token").val());
 
         $.ajax({

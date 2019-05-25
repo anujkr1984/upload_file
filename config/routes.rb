@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'students/index'
   resources :comments
   resources :posts
   root to:  "posts#index"
