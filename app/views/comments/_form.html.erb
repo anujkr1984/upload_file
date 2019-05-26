@@ -11,14 +11,20 @@
     </div>
   <% end %>
 
+  <% if @post.present? %>
+      <div class="field">
+        <%= form.hidden_field :post_id , value: @post.id %>
+      </div>
+  <% end %>
+
   <div class="field">
-    <%= form.label :post_id %>
-    <%= form.number_field :post_id %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
   </div>
 
   <div class="actions">
