@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  
+ 
 
   def index
     @comments = Comment.all
@@ -26,12 +26,6 @@ class CommentsController < ApplicationController
 
 
 end
-
-
-
-
-
-
 
 
 
@@ -124,4 +118,8 @@ end
   #   def comment_params
   #     params.require(:comment).permit(:post_id, :body)
   #   end
+<<<<<<< HEAD
 # end
+=======
+end
+>>>>>>> 529c9991c360ff2df7b7c08c1ee21fac642a20f1
